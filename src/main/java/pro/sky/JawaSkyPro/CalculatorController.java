@@ -9,7 +9,7 @@ public class CalculatorController {
     private CalculatorService calculatorService = new CalculatorService();
     @GetMapping(path = "/calculator")
     public String helloCalculautor() {
-        return calculatorService.helloCalculautor();
+        return "Добро пожаловать в калькулятор";
     }
 
     @GetMapping(path = "/calculator/plus")
@@ -30,8 +30,11 @@ public class CalculatorController {
     }
     @GetMapping(path = "/calculator/divide")
     public String divideCalculautor(@RequestParam("num1") double num1, @RequestParam("num2") double num2) {
+        if (num2 == 0) {
+            return " Делить на 0 нельзя, проверь еще раз" ;
+        } else {
 
-            return calculatorService.divideCalculautor(num1,num2);
-
+            return calculatorService.divideCalculautor(num1, num2);
+        }
     }
 }
