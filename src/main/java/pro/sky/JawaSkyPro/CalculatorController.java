@@ -14,19 +14,19 @@ public class CalculatorController {
 
     @GetMapping(path = "/calculator/plus")
     public String plusCalculautor(@RequestParam("num1") int num1, @RequestParam("num2") int num2) {
-        return calculatorService.plusCalculautor(num1, num2);
+        return num1 + "+" + num2 + "=" + calculatorService.plusCalculautor(num1, num2);
 
     }
 
     @GetMapping(path = "/calculator/minus")
     public String minusCalculautor(@RequestParam("num1") int num1, @RequestParam("num2") int num2) {
-        return calculatorService.minusCalculautor(num1, num2);
+        return num1 + "-" + num2 + "=" + calculatorService.minusCalculautor(num1, num2);
     }
 
     @GetMapping(path = "/calculator/multiply")
     public String multiplicationCalculautor(@RequestParam("num1") int num1, @RequestParam("num2") int num2) {
 
-        return calculatorService.multiplicationCalculautor(num1,num2);
+        return num1 + "*" + num2 + "=" + calculatorService.multiplicationCalculautor(num1,num2);
     }
     @GetMapping(path = "/calculator/divide")
     public String divideCalculautor(@RequestParam("num1") double num1, @RequestParam("num2") double num2) {
@@ -34,7 +34,7 @@ public class CalculatorController {
             return " Делить на 0 нельзя, проверь еще раз" ;
         } else {
 
-            return calculatorService.divideCalculautor(num1, num2);
+            return num1 + "/" + num2 + "=" + calculatorService.divideCalculautor(num1, num2);
         }
     }
 }
